@@ -12,8 +12,14 @@ public class YamlParser {
         URL url = Resources.getResource("env.yaml");
         String text = Resources.toString(url, Charsets.UTF_8);
         ObjectMapper mapper = new ObjectMapper(new YAMLFactory()).configure(DeserializationFeature
-                .FAIL_ON_UNKNOWN_PROPERTIES,false);
+                .FAIL_ON_UNKNOWN_PROPERTIES, false);
         AnthemEnv env = mapper.readValue(text, AnthemEnv.class);
         System.out.println("My home dir:" + env.getDev().getSpark().getHadoop_home_dir());
+        env.getDev().getJunk().forEach((s, s2) -> {
+            System.out.println(s + "=>" );
+            s2.forEach((s1, s21) -> {
+                System.out.println("\t\t"+s1+"==>"+s21);
+            });
+        });
     }
 }

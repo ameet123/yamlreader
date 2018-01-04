@@ -1,3 +1,5 @@
+import java.util.Map;
+
 public class AnthemEnv {
 
     private Dev dev;
@@ -16,6 +18,7 @@ public class AnthemEnv {
 
     public static abstract class Env {
         private Spark spark;
+        private Map<String, Map<String, String>> junk;
 
         public Spark getSpark() {
             return spark;
@@ -23,6 +26,15 @@ public class AnthemEnv {
 
         public void setSpark(Spark spark) {
             this.spark = spark;
+        }
+
+
+        public Map<String, Map<String, String>> getJunk() {
+            return junk;
+        }
+
+        public void setJunk(Map<String, Map<String, String>> junk) {
+            this.junk = junk;
         }
     }
 
